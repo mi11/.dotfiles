@@ -1,0 +1,98 @@
+"Automate Plugins
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+"Plugins
+call plug#begin('~/.local/share/nvim/plugged')
+"Autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Highlighting
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+"Git
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+"Text Manipulation
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+"Tools
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+"Visuals
+Plug 'lilydjwg/colorizer'
+Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle'}
+"Aesthetics
+Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle'}
+Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle'}
+call plug#end()
+
+
+"General Settings
+set nocompatible
+set guicursor= 
+set nomodeline
+filetype plugin on
+syntax on
+set sb
+set spr
+set hidden
+set lazyredraw
+set updatetime=500
+set number
+set relativenumber
+set list
+set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,nbsp:␣
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set foldmethod=indent
+set foldlevel=99
+set conceallevel=2
+set noshowmode
+set mouse=a
+let mapleader = ';'
+let g:netrw_dirhistmax = 0
+
+"NerdTree
+nmap <silent> <A-1> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+"Aesthetics
+let base16colorspace=256
+colorscheme nord
+let g:airline_theme='nord'
+
+"Airline
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = 'Ξ'
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#whitespace#symbol= '!'
+
+"FZF
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+"Keybindings
+nnoremap <silent> <C-P> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-v': 'split',
+  \ 'ctrl-h': 'vsplit'
+  \}
