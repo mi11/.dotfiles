@@ -106,3 +106,13 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-c> :Commands<CR>
+nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>d :bp<bar>bd#<CR>
+nnoremap <silent> <leader>s :w<CR>
+nnoremap <silent> <leader>z :x<CR>
+nnoremap <silent> <leader>x :xa<CR>
+nnoremap <silent> <leader>q :qa<CR>
+noremap <silent> <leader>y "+y
+nnoremap <silent> <leader><leader> ;
