@@ -15,6 +15,9 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+"Text Manipulation
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 "Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
@@ -67,7 +70,6 @@ let mapleader = ';'
 let g:netrw_dirhistmax = 0
 
 "NerdTree
-nmap <silent> <A-1> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
@@ -89,6 +91,9 @@ let g:airline#extensions#whitespace#symbol= '!'
 "FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
+"Coc
+let g:coc_global_extensions = ['coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']
+
 "Keybindings
 nnoremap <silent> <C-P> :FZF<CR>
 let g:fzf_action = {
@@ -96,3 +101,8 @@ let g:fzf_action = {
   \ 'ctrl-v': 'split',
   \ 'ctrl-h': 'vsplit'
   \}
+nmap <silent> <A-1> :NERDTreeToggle<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
